@@ -21,7 +21,7 @@ AGENTS.md              助手进入本项目时的工作约定
 
 这是可以直接在当前对话使用的文件式伴读系统，不依赖额外模型 API。它不在后台自动翻译；你发起一轮阅读，助手读取相应原文并保存本轮结果。
 
-Git 远程：`origin` → `https://github.com/gray5508/my_reader.git`。英文 PDF 和中文 EPUB 已按用户要求纳入仓库；提取缓存、完整译文和个人讨论记录仍由 `.gitignore` 排除。
+Git 远程：`origin` → `https://github.com/gray5508/my_reader.git`。书源和后续译文均可纳入仓库；提取缓存、临时文件和个人讨论记录仍由 `.gitignore` 排除。
 
 ## 书籍类型如何调整
 
