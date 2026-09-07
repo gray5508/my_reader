@@ -2,14 +2,14 @@
   "schema_version": 1,
   "book": "反脆弱",
   "updated_on": "2026-09-07",
-  "status": "ready_not_started",
+  "status": "chapter_translation_ready",
   "source_index": "sources/source_index.json",
-  "user_scope": "本轮仅搭建系统，不翻译正文。以后按用户指定章节交互，不自动翻译下一章或全书。",
+  "user_scope": "第 1 章已按用户要求生成合并版伴读与译文。等待用户阅读、反馈和讨论，不自动翻译第 2 章。",
   "mode": {
-    "name": "顺读",
-    "save_literal": true,
+    "name": "合并伴读",
+    "save_literal": false,
     "save_natural": true,
-    "chat_primary": "自然顺译",
+    "chat_primary": "完整自然顺译 + 关键句直译对照 + 伴读",
     "first_batch_english_words": [
       300,
       500
@@ -20,20 +20,22 @@
     ],
     "max_interactive_questions_per_turn": 1
   },
-  "current_unit": "prologue",
-  "next_untranslated": {
-    "lang": "en",
-    "unit": "prologue",
-    "offset": 0,
-    "pdf_physical_page": 16,
-    "note": "标题在物理页16，正文在17；尚未开始翻译。"
+  "current_unit": "ch01",
+  "next_untranslated": null,
+  "last_delivered": {
+    "unit": "ch01",
+    "source_sha256": "ae5a49c4cff67861649841a7a061b8ac01f6eae1fce51628ba973f6c452bfb57",
+    "source_range": "PDF physical pages 47–59; ch01 offsets 0–21057",
+    "file": "chapters/ch01/001_伴读与译文.md",
+    "coverage": "整章，含章题、引题、五个小节、图 1 说明和脚注 1–2",
+    "next_action": "等待用户阅读、反馈或讨论；不自动进入 ch02"
   },
-  "last_delivered": null,
   "user_confirmed_read": null,
-  "completed_units": [],
+  "completed_units": [
+    "ch01"
+  ],
   "deferred_units": [],
   "pending_source_checks": [],
   "latest_discussion": null,
   "update_contract": "保存成功后按实际翻译范围更新 next_untranslated，读取结束不等于翻译结束。last_delivered 与 user_confirmed_read 分开，后者仅由用户确认。续读保存源 SHA-256、短锚点及批次文件路径。"
 }
-
