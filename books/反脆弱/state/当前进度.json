@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "book": "反脆弱",
+  "updated_on": "2026-09-07",
+  "status": "ready_not_started",
+  "source_index": "sources/source_index.json",
+  "user_scope": "本轮仅搭建系统，不翻译正文。以后按用户指定章节交互，不自动翻译下一章或全书。",
+  "mode": {
+    "name": "顺读",
+    "save_literal": true,
+    "save_natural": true,
+    "chat_primary": "自然顺译",
+    "first_batch_english_words": [
+      300,
+      500
+    ],
+    "later_batch_english_words": [
+      600,
+      900
+    ],
+    "max_interactive_questions_per_turn": 1
+  },
+  "current_unit": "prologue",
+  "next_untranslated": {
+    "lang": "en",
+    "unit": "prologue",
+    "offset": 0,
+    "pdf_physical_page": 16,
+    "note": "标题在物理页16，正文在17；尚未开始翻译。"
+  },
+  "last_delivered": null,
+  "user_confirmed_read": null,
+  "completed_units": [],
+  "deferred_units": [],
+  "pending_source_checks": [],
+  "latest_discussion": null,
+  "update_contract": "保存成功后按实际翻译范围更新 next_untranslated，读取结束不等于翻译结束。last_delivered 与 user_confirmed_read 分开，后者仅由用户确认。续读保存源 SHA-256、短锚点及批次文件路径。"
+}
+

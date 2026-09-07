@@ -1,0 +1,14 @@
+# 原始电子书、提取缓存与完整译文只保存在本地。
+/ebook/
+**/.cache/
+/tmp/
+**/__pycache__/
+*.pyc
+# 每章目录保存完整直译与顺译；章节入口与讨论笔记可版本管理。
+/books/*/chapters/*/
+# 个性化互动记录默认仅本地保存。
+/books/*/notes/*_讨论.md
+/books/*/state/我的观点变化.md
+/books/*/state/未解决问题.md
+/books/*/state/值得迁移的地图.md
+/books/*/state/习惯实验清单.md
