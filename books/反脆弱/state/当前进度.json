@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "book": "反脆弱",
-  "updated_on": "2026-09-07",
+  "updated_on": "2026-09-08",
   "status": "chapter_translation_ready",
   "source_index": "sources/source_index.json",
-  "user_scope": "第 1 章已按用户要求生成合并版伴读与译文。等待用户阅读、反馈和讨论，不自动翻译第 2 章。",
+  "user_scope": "第 1 章已有忠实核对版和中文语境易读版。易读版保留作者案例，并用明确标签加入助手辅助例子。等待用户阅读、反馈和讨论，不自动翻译第 2 章。",
   "mode": {
-    "name": "合并伴读",
+    "name": "中文语境分层伴读",
     "save_literal": false,
     "save_natural": true,
-    "chat_primary": "完整自然顺译 + 关键句直译对照 + 伴读",
+    "chat_primary": "中文语境易读版；作者原例与助手辅助例子分开标注",
     "first_batch_english_words": [
       300,
       500
@@ -26,8 +26,9 @@
     "unit": "ch01",
     "source_sha256": "ae5a49c4cff67861649841a7a061b8ac01f6eae1fce51628ba973f6c452bfb57",
     "source_range": "PDF physical pages 47–59; ch01 offsets 0–21057",
-    "file": "chapters/ch01/001_伴读与译文.md",
-    "coverage": "整章，含章题、引题、五个小节、图 1 说明和脚注 1–2",
+    "file": "chapters/ch01/002_中文语境易读版.md",
+    "faithful_reference_file": "chapters/ch01/001_伴读与译文.md",
+    "coverage": "整章中文语境意译，保留作者主要案例；助手辅助案例均显式标注",
     "next_action": "等待用户阅读、反馈或讨论；不自动进入 ch02"
   },
   "user_confirmed_read": null,
