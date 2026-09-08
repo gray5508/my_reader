@@ -10,6 +10,7 @@
     "dev": "vinext dev",
     "prebuild": "node scripts/sync-library.mjs",
     "build": "vinext build",
+    "build:offline": "node scripts/build-offline-reader.mjs",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint app scripts components/ui/button.tsx components/ui/progress.tsx components/ui/slider.tsx",
     "format": "oxfmt"
