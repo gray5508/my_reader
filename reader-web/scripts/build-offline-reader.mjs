@@ -56,6 +56,7 @@ const html = String.raw`<!doctype html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23315b48'/%3E%3Cpath d='M18 15h20a8 8 0 0 1 8 8v27H26a8 8 0 0 0-8 8V15zm8 7h13v4H26zm0 9h13v4H26z' fill='%23fff'/%3E%3C/svg%3E">
   <title>静读 · 本地伴读阅读器</title>
   <style>
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,"Microsoft YaHei",system-ui,sans-serif}button,input{font:inherit}.reader-shell{--page-bg:#edf2ed;--surface:#f8faf7;--surface-strong:#fff;--ink:#27312b;--soft:#68766e;--hair:#cad5cd;--accent:#315b48;--accent-soft:#dfe9e2;--quote:#edf2ee;--helper:#eef4ec;--helper-line:#6d927a;--example:#edf3f5;--example-line:#668795;--point:#f4f1e7;--point-line:#9b8650;--boundary:#f7eeee;--boundary-line:#a66d67;min-height:100vh;background:var(--page-bg);color:var(--ink)}
