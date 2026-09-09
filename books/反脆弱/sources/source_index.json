@@ -6,7 +6,7 @@
   "en": {
     "path": "ebook/Antifragile Things That Gain from Disorder (Taleb, Nassim Nicholas) (z-library.sk, 1lib.sk, z-lib.sk).epub",
     "bytes": 3288726,
-    "mtime_ns": 1788855190193833200,
+    "mtime_ns": 1788864270462461800,
     "sha256": "561580c5c0d22135a14ab076769cfd9d39761f3d8346e548edaef0b5fc6228ca",
     "metadata": {
       "publisher": [
@@ -1359,7 +1359,7 @@
   "zh": {
     "path": "ebook/反脆弱 (纳西姆·尼古拉斯·塔勒布 [纳西姆·尼古拉斯·塔勒布]) (z-library.sk, 1lib.sk, z-lib.sk).epub",
     "bytes": 799688,
-    "mtime_ns": 1788854545468062400,
+    "mtime_ns": 1788864270479367100,
     "sha256": "b18cef2f5160fc19450bcea7eac0f3c66789f530ba830dc267c143bb063a059f",
     "metadata": {
       "creator": [
@@ -2401,7 +2401,7 @@
   "en_pdf_reference": {
     "path": "ebook/Antifragile Things That Gain From Disorder (Nassim Nicholas Taleb) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
     "bytes": 6930064,
-    "mtime_ns": 1788854545458566900,
+    "mtime_ns": 1788864270443927800,
     "sha256": "ae5a49c4cff67861649841a7a061b8ac01f6eae1fce51628ba973f6c452bfb57",
     "page_count": 677,
     "metadata": {

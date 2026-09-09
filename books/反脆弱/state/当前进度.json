@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "book": "反脆弱",
-  "updated_on": "2026-09-08",
+  "updated_on": "2026-09-09",
   "status": "chapter_translation_ready",
   "source_index": "sources/source_index.json",
-  "user_scope": "第 2 章已有忠实核对版和中文语境易读版。易读版保留作者全部关键观点与主要原例，并用明确标签加入助手辅助例子。等待用户阅读、反馈和讨论，不自动翻译第 3 章。",
+  "user_scope": "第 3 章已有忠实核对版和中文语境易读版。易读版保留作者全部关键观点与主要原例，并将助手辅助例子单独标注。等待用户阅读、反馈和讨论，不自动翻译第 4 章。",
   "mode": {
     "name": "中文语境分层伴读",
     "save_literal": true,
@@ -20,23 +20,24 @@
     ],
     "max_interactive_questions_per_turn": 1
   },
-  "current_unit": "ch02",
+  "current_unit": "ch03",
   "next_untranslated": null,
   "last_delivered": {
-    "unit": "ch02",
+    "unit": "ch03",
     "source_sha256": "561580c5c0d22135a14ab076769cfd9d39761f3d8346e548edaef0b5fc6228ca",
-    "source_range": "English EPUB split_020.html#p0001 through split_023.html#p0032; ch02 offsets 0–34118; PDF physical pages 60–73 cross-checked",
-    "source_anchor_start": "CHAPTER 2 / Overcompensation and Overreaction Everywhere",
-    "source_anchor_end": "Next we turn to a central distinction between the things that like stress and other things that don’t. / footnote 6",
-    "file": "chapters/ch02/002_中文语境易读版.md",
-    "faithful_reference_file": "chapters/ch02/001_忠实核对版.md",
-    "coverage": "整章双版本译文；英文 EPUB 主源覆盖章题、引题、五个正文部分和六条脚注，英文 PDF 60–73 页抽查一致；未发现图表；作者原例与助手辅助案例均显式标注",
-    "next_action": "等待用户阅读、反馈或讨论；不自动进入 ch03"
+    "source_range": "English EPUB split_024.html#p0001 through split_027.html#p0028; ch03 offsets 0–26707; PDF physical pages 74–87 cross-checked",
+    "source_anchor_start": "CHAPTER 3 / The Cat and the Washing Machine",
+    "source_anchor_end": "There is no reason to not want advantages from both eras. / footnote 3",
+    "file": "chapters/ch03/002_中文语境易读版.md",
+    "faithful_reference_file": "chapters/ch03/001_忠实核对版.md",
+    "coverage": "整章双版本译文；英文 EPUB 主源覆盖章题、章首提要、七个正文部分、图 2、表 2 和三条脚注，英文 PDF 74–87 页抽查一致；表 2 图片切片已重建；作者原例与助手辅助案例均显式标注",
+    "next_action": "等待用户阅读、反馈或讨论；不自动进入 ch04"
   },
   "user_confirmed_read": null,
   "completed_units": [
     "ch01",
-    "ch02"
+    "ch02",
+    "ch03"
   ],
   "deferred_units": [],
   "pending_source_checks": [],
