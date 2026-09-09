@@ -141,7 +141,10 @@ export default function Home() {
         <Button variant="ghost" size="icon" aria-label="打开章节目录" onClick={() => setSidebarOpen(!sidebarOpen)}>{sidebarOpen ? <PanelLeftClose /> : <PanelLeftOpen />}</Button>
         <BookOpenText className="brand-mark" aria-hidden="true" /><div><strong>静读</strong><span>{currentDoc.book}</span></div>
       </div>
-      <div className="bar-title"><span>{currentDoc.chapterTitle}</span><strong>{currentDoc.title.replace(/^第\s*\d+\s*章[　\s]*/, '')}</strong></div>
+      <div className="bar-center">
+        <div className="bar-title"><span>{currentDoc.chapterTitle}</span><strong>{currentDoc.title.replace(/^第\s*\d+\s*章[　\s]*/, '')}</strong></div>
+        <fieldset className="document-switcher"><legend className="sr-only">选择译文版本</legend>{chapterDocuments.map((item) => <button className={item.id === currentDoc.id ? 'active' : ''} key={item.id} onClick={() => setDocumentId(item.id)}>{item.preferred ? '易读版' : '忠实版'}<small>{item.variant}</small></button>)}</fieldset>
+      </div>
       <div className="bar-actions">
         <Button variant="ghost" size="icon" aria-label="切换日夜主题" onClick={() => setTheme(theme === 'night' ? 'green' : 'night')}>{theme === 'night' ? <Sun /> : <Moon />}</Button>
         <Button variant="ghost" size="icon" aria-label="阅读设置" aria-expanded={settingsOpen} onClick={() => setSettingsOpen(!settingsOpen)}><Settings2 /></Button>
@@ -166,7 +169,6 @@ export default function Home() {
     </aside>}
 
     <main className={`reading-stage ${sidebarOpen ? 'with-sidebar' : ''}`}><article className="reader-page">
-      <fieldset className="document-switcher"><legend className="sr-only">选择译文版本</legend>{chapterDocuments.map((item) => <button className={item.id === currentDoc.id ? 'active' : ''} key={item.id} onClick={() => setDocumentId(item.id)}>{item.preferred ? '易读版' : '忠实版'}<small>{item.variant}</small></button>)}</fieldset>
       <div className="reader-content"><MarkdownArticle source={currentDoc} /></div>
       <footer className="chapter-footer"><Button variant="outline" disabled={chapterIndex <= 0} onClick={() => chooseChapter(chapters[chapterIndex - 1].chapterId)}><ChevronLeft />上一章</Button><span>读到这里会自动记住位置</span><Button variant="outline" disabled={chapterIndex < 0 || chapterIndex >= chapters.length - 1} onClick={() => chooseChapter(chapters[chapterIndex + 1].chapterId)}>下一章<ChevronRight /></Button></footer>
     </article></main>
