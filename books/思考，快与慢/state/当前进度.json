@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "book": "思考，快与慢",
+  "source_index": "sources/source_index.json",
+  "source_policy": "English EPUB primary; Chinese MOBI optional reference",
+  "requested_route": ["ch01", "ch02", "ch03", "ch04", "ch05", "ch06", "ch07", "ch08", "ch09", "ch10"],
+  "status": "requested_route_delivered",
+  "current_unit": "ch10",
+  "next_untranslated": null,
+  "next_unrequested": {
+    "unit": "ch11",
+    "offset": 0,
+    "location": "OEBPS/9781429969352_ch11.xhtml#ch11",
+    "source_anchor": "Anchors"
+  },
+  "last_delivered": {
+    "unit": "ch10",
+    "batch": "003",
+    "source_sha256": "42b95962005cffe54197bc782d75ab5c75e58df8a2edbfc26ccbaad86c927bd3",
+    "source_range": "OEBPS/9781429969352_ch10.xhtml#p0001–p0053; ch10 offsets 0–27248",
+    "source_anchor_start": "10 / The Law of Small Numbers",
+    "source_anchor_end": "reach a conclusion prematurely",
+    "chapter_entry": "chapters/ch10.md",
+    "batches": ["001", "002", "003"],
+    "figures": [],
+    "footnotes": [],
+    "coverage": "英文 EPUB 第10章全文；3 批忠实版与易读版",
+    "verification": "all 14 paired batches across chapters 6–10, entry links, and assembled reader variants verified"
+  },
+  "recent_delivery": {
+    "units": ["ch06", "ch07", "ch08", "ch09", "ch10"],
+    "source_ranges": {
+      "ch06": "p0001–p0030; offsets 0–19517",
+      "ch07": "p0001–p0046; offsets 0–25709",
+      "ch08": "p0001–p0049; offsets 0–18705",
+      "ch09": "p0001–p0080; offsets 0–20234",
+      "ch10": "p0001–p0053; offsets 0–27248"
+    },
+    "paired_batches": 14,
+    "figures": ["chapters/ch07/89.jpg", "chapters/ch08/102a.jpg", "chapters/ch08/102b.jpg", "chapters/ch09/110.jpg"],
+    "footnotes": ["OEBPS/footnote2.xhtml", "OEBPS/footnote3.xhtml", "OEBPS/footnote4.xhtml", "OEBPS/footnote5.xhtml", "OEBPS/footnote6.xhtml"],
+    "verification": "reader data sync and 14 paired-batch checks passed"
+  },
+  "user_confirmed_read": null,
+  "completed_units": ["ch01", "ch02", "ch03", "ch04", "ch05", "ch06", "ch07", "ch08", "ch09", "ch10"],
+  "pending_source_checks": [],
+  "mode": "paired faithful and readable batches"
+}

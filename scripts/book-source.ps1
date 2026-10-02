@@ -14,7 +14,7 @@ $bookPythonExecutable = $null
 foreach ($bookPythonCandidate in ($bookPythonCandidates | Select-Object -Unique)) {
     if (Test-Path -LiteralPath $bookPythonCandidate -PathType Leaf) {
         try {
-            & $bookPythonCandidate -c 'import pypdf' 2>$null
+            & $bookPythonCandidate -c 'import sys; raise SystemExit(0 if sys.version_info >= (3, 11) else 1)' 2>$null
         } catch {
             continue
         }
@@ -25,7 +25,7 @@ foreach ($bookPythonCandidate in ($bookPythonCandidates | Select-Object -Unique)
     }
 }
 if (-not $bookPythonExecutable) {
-    throw 'No usable Python with pypdf found. Install Python 3.11+ and run: python -m pip install pypdf'
+    throw 'No usable Python 3.11+ found.'
 }
 & $bookPythonExecutable (Join-Path $PSScriptRoot 'book_source.py') @BookArguments
 exit $LASTEXITCODE

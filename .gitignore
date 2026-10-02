@@ -3,6 +3,7 @@
 /tmp/
 **/__pycache__/
 *.pyc
+.playwright-cli/
 # 个性化互动记录默认仅本地保存。
 /books/*/notes/*_讨论.md
 /books/*/state/我的观点变化.md

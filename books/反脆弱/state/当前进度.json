@@ -1,10 +1,13 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "book": "反脆弱",
-  "updated_on": "2026-09-09",
-  "status": "chapter_translation_ready",
+  "updated_on": "2026-09-30",
+  "status": "requested_next_five_chapters_translated",
   "source_index": "sources/source_index.json",
-  "user_scope": "第 3 章已有忠实核对版和中文语境易读版。易读版保留作者全部关键观点与主要原例，并将助手辅助例子单独标注。等待用户阅读、反馈和讨论，不自动翻译第 4 章。",
+  "source_policy": "epub_only",
+  "context_index": "context/章节小结.md",
+  "artifact_contract": "同一片段使用同一三位批次号生成 <批次>_忠实核对版.md 与 <批次>_中文语境易读版.md；日常只同步 reader-data，不修改阅读器 HTML。",
+  "user_scope": "用户本轮请求从第9章继续翻译五章，即第9–13章。五章共31个双版本批次已保存并通过离线阅读器数据逐批校验。第三卷、第四卷引言是独立单元，不计入五章；用户是否读完尚未确认。",
   "mode": {
     "name": "中文语境分层伴读",
     "save_literal": true,
@@ -20,24 +23,39 @@
     ],
     "max_interactive_questions_per_turn": 1
   },
-  "current_unit": "ch03",
-  "next_untranslated": null,
+  "current_unit": "ch14",
+  "next_untranslated": {
+    "unit": "ch14",
+    "offset": 0,
+    "location": "CR!WDDHDN2YAD3W5FDQD3JHYKA4FYTD_split_079.html#p0001",
+    "source_anchor": "CHAPTER 14"
+  },
   "last_delivered": {
-    "unit": "ch03",
+    "unit": "ch13",
     "source_sha256": "561580c5c0d22135a14ab076769cfd9d39761f3d8346e548edaef0b5fc6228ca",
-    "source_range": "English EPUB split_024.html#p0001 through split_027.html#p0028; ch03 offsets 0–26707; PDF physical pages 74–87 cross-checked",
-    "source_anchor_start": "CHAPTER 3 / The Cat and the Washing Machine",
-    "source_anchor_end": "There is no reason to not want advantages from both eras. / footnote 3",
-    "file": "chapters/ch03/002_中文语境易读版.md",
-    "faithful_reference_file": "chapters/ch03/001_忠实核对版.md",
-    "coverage": "整章双版本译文；英文 EPUB 主源覆盖章题、章首提要、七个正文部分、图 2、表 2 和三条脚注，英文 PDF 74–87 页抽查一致；表 2 图片切片已重建；作者原例与助手辅助案例均显式标注",
-    "next_action": "等待用户阅读、反馈或讨论；不自动进入 ch04"
+    "source_range": "English EPUB split_075.html#p0001 through split_078.html#p0021; ch13 offsets 0–37782",
+    "source_anchor_start": "CHAPTER 13 / Lecturing Birds on How to Fly",
+    "source_anchor_end": "not even a smile",
+    "file": "chapters/ch13/009_中文语境易读版.md",
+    "faithful_reference_file": "chapters/ch13/009_忠实核对版.md",
+    "coverage": "第9–13章共31个双版本批次，章内offset均连续；第9章脚注1、第10章脚注1–2、第11章脚注1–3、第12章图5–7与脚注1–4、第13章脚注1已处理。第12章原 EPUB 一处疑似笔误已标注。",
+    "next_action": "第14章从 ch14 offset 0、split_079.html#p0001 接续；第三卷与第四卷引言是独立单元，尚未翻译。"
   },
   "user_confirmed_read": null,
   "completed_units": [
     "ch01",
     "ch02",
-    "ch03"
+    "ch03",
+    "ch04",
+    "ch05",
+    "ch06",
+    "ch07",
+    "ch08",
+    "ch09",
+    "ch10",
+    "ch11",
+    "ch12",
+    "ch13"
   ],
   "deferred_units": [],
   "pending_source_checks": [],

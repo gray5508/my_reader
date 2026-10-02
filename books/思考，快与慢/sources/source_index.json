@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "source": {
+    "path": "books/思考，快与慢/Thinking, Fast and Slow (Daniel Kahneman) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+    "bytes": 4038963,
+    "mtime_ns": 1790650302402769100,
+    "sha256": "42b95962005cffe54197bc782d75ab5c75e58df8a2edbfc26ccbaad86c927bd3"
+  },
+  "units": [
+    {
+      "id": "ch01",
+      "title": "The Characters of the Story",
+      "epub_href": "OEBPS/9781429969352_ch01.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch01.xhtml#ch01"
+    },
+    {
+      "id": "ch02",
+      "title": "Attention and Effort",
+      "epub_href": "OEBPS/9781429969352_ch02.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch02.xhtml#ch02"
+    },
+    {
+      "id": "ch03",
+      "title": "The Lazy Controller",
+      "epub_href": "OEBPS/9781429969352_ch03.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch03.xhtml#ch03"
+    },
+    {
+      "id": "ch04",
+      "title": "The Associative Machine",
+      "epub_href": "OEBPS/9781429969352_ch04.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch04.xhtml#ch04"
+    },
+    {
+      "id": "ch05",
+      "title": "Cognitive Ease",
+      "epub_href": "OEBPS/9781429969352_ch05.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch05.xhtml#ch05"
+    },
+    {
+      "id": "ch06",
+      "title": "Norms, Surprises, and Causes",
+      "epub_href": "OEBPS/9781429969352_ch06.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch06.xhtml#ch06"
+    },
+    {
+      "id": "ch07",
+      "title": "A Machine for Jumping to Conclusions",
+      "epub_href": "OEBPS/9781429969352_ch07.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch07.xhtml#ch07"
+    },
+    {
+      "id": "ch08",
+      "title": "How Judgments Happen",
+      "epub_href": "OEBPS/9781429969352_ch08.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch08.xhtml#ch08"
+    },
+    {
+      "id": "ch09",
+      "title": "Answering an Easier Question",
+      "epub_href": "OEBPS/9781429969352_ch09.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch09.xhtml#ch09"
+    },
+    {
+      "id": "ch10",
+      "title": "The Law of Small Numbers",
+      "epub_href": "OEBPS/9781429969352_ch10.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch10.xhtml#ch10"
+    },
+    {
+      "id": "ch11",
+      "title": "Anchors",
+      "epub_href": "OEBPS/9781429969352_ch11.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch11.xhtml#ch11"
+    },
+    {
+      "id": "ch12",
+      "title": "The Science of Availability",
+      "epub_href": "OEBPS/9781429969352_ch12.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch12.xhtml#ch12"
+    },
+    {
+      "id": "ch13",
+      "title": "Availability, Emotion, and Risk",
+      "epub_href": "OEBPS/9781429969352_ch13.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch13.xhtml#ch13"
+    },
+    {
+      "id": "ch14",
+      "title": "Tom W’s Specialty",
+      "epub_href": "OEBPS/9781429969352_ch14.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch14.xhtml#ch14"
+    },
+    {
+      "id": "ch15",
+      "title": "Linda: Less is More",
+      "epub_href": "OEBPS/9781429969352_ch15.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch15.xhtml#ch15"
+    },
+    {
+      "id": "ch16",
+      "title": "Causes Trump Statistics",
+      "epub_href": "OEBPS/9781429969352_ch16.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch16.xhtml#ch16"
+    },
+    {
+      "id": "ch17",
+      "title": "Regression to the Mean",
+      "epub_href": "OEBPS/9781429969352_ch17.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch17.xhtml#ch17"
+    },
+    {
+      "id": "ch18",
+      "title": "Taming Intuitive Predictions",
+      "epub_href": "OEBPS/9781429969352_ch18.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch18.xhtml#ch18"
+    },
+    {
+      "id": "ch19",
+      "title": "The Illusion of Understanding",
+      "epub_href": "OEBPS/9781429969352_ch19.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch19.xhtml#ch19"
+    },
+    {
+      "id": "ch20",
+      "title": "The Illusion of Validity",
+      "epub_href": "OEBPS/9781429969352_ch20.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch20.xhtml#ch20"
+    },
+    {
+      "id": "ch21",
+      "title": "Intuitions Vs. Formulas",
+      "epub_href": "OEBPS/9781429969352_ch21.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch21.xhtml#ch21"
+    },
+    {
+      "id": "ch22",
+      "title": "Expert Intuition: When Can We Trust It?",
+      "epub_href": "OEBPS/9781429969352_ch22.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch22.xhtml#ch22"
+    },
+    {
+      "id": "ch23",
+      "title": "The Outside View",
+      "epub_href": "OEBPS/9781429969352_ch23.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch23.xhtml#ch23"
+    },
+    {
+      "id": "ch24",
+      "title": "The Engine of Capitalism",
+      "epub_href": "OEBPS/9781429969352_ch24.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch24.xhtml#ch24"
+    },
+    {
+      "id": "ch25",
+      "title": "Bernoulli’s Errors",
+      "epub_href": "OEBPS/9781429969352_ch25.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch25.xhtml#ch25"
+    },
+    {
+      "id": "ch26",
+      "title": "Prospect Theory",
+      "epub_href": "OEBPS/9781429969352_ch26.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch26.xhtml#ch26"
+    },
+    {
+      "id": "ch27",
+      "title": "The Endowment Effect",
+      "epub_href": "OEBPS/9781429969352_ch27.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch27.xhtml#ch27"
+    },
+    {
+      "id": "ch28",
+      "title": "Bad Events",
+      "epub_href": "OEBPS/9781429969352_ch28.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch28.xhtml#ch28"
+    },
+    {
+      "id": "ch29",
+      "title": "The Fourfold Pattern",
+      "epub_href": "OEBPS/9781429969352_ch29.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch29.xhtml#ch29"
+    },
+    {
+      "id": "ch30",
+      "title": "Rare Events",
+      "epub_href": "OEBPS/9781429969352_ch30.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch30.xhtml#ch30"
+    },
+    {
+      "id": "ch31",
+      "title": "Risk Policies",
+      "epub_href": "OEBPS/9781429969352_ch31.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch31.xhtml#ch31"
+    },
+    {
+      "id": "ch32",
+      "title": "Keeping Score",
+      "epub_href": "OEBPS/9781429969352_ch32.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch32.xhtml#ch32"
+    },
+    {
+      "id": "ch33",
+      "title": "Reversals",
+      "epub_href": "OEBPS/9781429969352_ch33.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch33.xhtml#ch33"
+    },
+    {
+      "id": "ch34",
+      "title": "Frames and Reality",
+      "epub_href": "OEBPS/9781429969352_ch34.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch34.xhtml#ch34"
+    },
+    {
+      "id": "ch35",
+      "title": "Two Selves",
+      "epub_href": "OEBPS/9781429969352_ch35.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch35.xhtml#ch35"
+    },
+    {
+      "id": "ch36",
+      "title": "Life as a Story",
+      "epub_href": "OEBPS/9781429969352_ch36.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch36.xhtml#ch36"
+    },
+    {
+      "id": "ch37",
+      "title": "Experienced Well-Being",
+      "epub_href": "OEBPS/9781429969352_ch37.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch37.xhtml#ch37"
+    },
+    {
+      "id": "ch38",
+      "title": "Thinking About Life",
+      "epub_href": "OEBPS/9781429969352_ch38.xhtml",
+      "toc_href": "OEBPS/9781429969352_ch38.xhtml#ch38"
+    }
+  ],
+  "location_note": "EPUB extraction blocks and offsets are not print pages; check XHTML for figures and notes."
+}
