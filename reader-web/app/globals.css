@@ -32,6 +32,8 @@ button { font:inherit; }
 .chapter-list { display:grid; gap:8px; }
 .chapter-list button { display:flex; gap:13px; align-items:center; width:100%; padding:12px; color:var(--soft); text-align:left; background:transparent; border:0; border-radius:12px; cursor:pointer; }
 .chapter-list button:hover,.chapter-list button.active { color:var(--ink); background:var(--accent-soft); }
+.chapter-list button:disabled { opacity:.42; cursor:not-allowed; }
+.chapter-list button:disabled:hover { color:var(--soft); background:transparent; }
 .chapter-list button>span { font-size:12px; font-variant-numeric:tabular-nums; }
 .chapter-list strong,.chapter-list small { display:block; }
 .chapter-list small { margin-top:2px; color:var(--soft); font-size:11px; }
@@ -55,6 +57,7 @@ button { font:inherit; }
 .reader-content h3 { margin:2.5em 0 .75em; font-size:1.12em; line-height:1.5; }
 .reader-content h4 { margin:2em 0 .6em; font-size:1em; }
 .reader-content p { margin:0 0 1.15em; text-align:justify; text-justify:inter-ideograph; }
+.reader-content img { display:block; max-width:100%; height:auto; margin:1em auto; }
 .reader-content ul,.reader-content ol { margin:0 0 1.25em; padding-left:1.55em; }
 .reader-content li { margin:.28em 0; padding-left:.25em; }
 .reader-content blockquote { margin:1.7em 0; padding:1.2em 1.35em; color:var(--soft); background:var(--quote); border-left:3px solid var(--accent); border-radius:0 12px 12px 0; }

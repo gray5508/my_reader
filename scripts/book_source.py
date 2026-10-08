@@ -82,8 +82,10 @@ def build():
         info = epub_info(epub)
         languages = [x.get("value", "") for x in info["metadata"].get("language", [])]
         epub_sources.append((epub, info, languages))
-    english = [(path, info) for path, info, langs in epub_sources if any(x.lower().startswith("en") for x in langs)]
-    chinese = [(path, info) for path, info, langs in epub_sources if any(x.lower().startswith("zh") for x in langs)]
+    english = [(path, info) for path, info, langs in epub_sources
+               if path.name.startswith("Antifragile ") and any(x.lower().startswith("en") for x in langs)]
+    chinese = [(path, info) for path, info, langs in epub_sources
+               if path.name.startswith("反脆弱 ") and any(x.lower().startswith("zh") for x in langs)]
     if len(english) != 1 or len(chinese) != 1:
         raise ValueError("Expected exactly one English EPUB and one Chinese EPUB, identified by metadata language.")
     en_epub, en = english[0]
@@ -150,7 +152,7 @@ def build():
                  ".\\scripts\\book-source.ps1 read --lang en --unit prologue --offset 0 --limit 6000",
                  ".\\scripts\\book-source.ps1 read --lang en --unit ch01 --offset 0 --limit 6000",
                  ".\\scripts\\book-source.ps1 read --lang zh --unit ch01 --offset 0 --limit 3000", "```", "",
-                 "也可用 `python scripts/book_source.py ...`。本机准确解释器为 `C:/Users/cicii/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe`。", "",
+                 "也可用 `python scripts/book_source.py ...`。PowerShell 入口会检测当前用户目录中的 Codex 配套 Python。", "",
                  "`read` 默认最多输出 6000 字符，最大 20000。按输出中的 `next_offset` 续读同一单元；offset 是带定位标记的抽取文本的字符偏移，并非原书字符号。",
                  "EPUB 每块含 `[EPUB href#p0001]`，分段头会重复当前位置，防止切在段中时失去定位。",
                  "原文只按需缓存到 `books/反脆弱/.cache/`；本目录 JSON 只保存元数据和定位。源文件不改动；若其大小或修改时间变化会要求重新索引。",

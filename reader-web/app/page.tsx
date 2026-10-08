@@ -12,8 +12,10 @@ type Block = { type: string; level?: number; text?: string; items?: string[]; ki
 const defaultDocument = library.find((item) => item.preferred) ?? library[0];
 
 function inline(text: string) {
-  const parts = text.split(/(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/g);
+  const parts = text.split(/(!?\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/g);
   return parts.map((part, index) => {
+    const image = part.match(/^!\[([^\]]*)\]\(reader-web\/public\/([\w-]+\/[\w-]+\/[\w.-]+)\)$/);
+    if (image) return <img key={index} src={`/${image[2]}`} alt={image[1]} loading="lazy" />;
     const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
     if (link) return <span key={index} className="inline-link">{link[1]}</span>;
     if (part.startsWith('**') && part.endsWith('**')) return <strong key={index}>{part.slice(2, -2)}</strong>;
@@ -99,8 +101,9 @@ export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const currentDoc = library.find((item) => item.id === documentId) ?? defaultDocument;
-  const chapterDocuments = library.filter((item) => item.chapterId === currentDoc?.chapterId);
-  const chapters = Array.from(new Map(library.map((item) => [item.chapterId, item])).values());
+  const chapterDocuments = library.filter((item) => item.book === currentDoc?.book && item.chapterId === currentDoc?.chapterId);
+  const chapters = Array.from(new Map(library.filter((item) => item.book === currentDoc?.book).map((item) => [item.chapterId, item])).values());
+  const openChapters = chapters.filter((item) => !item.locked);
   const toc = useMemo(() => currentDoc?.content.match(/^##\s+.+$/gm)?.map((line) => line.replace(/^##\s+/, '')) ?? [], [currentDoc]);
 
   useEffect(() => {
@@ -128,11 +131,12 @@ export default function Home() {
   }, [documentId]);
 
   function chooseChapter(chapterId: string) {
-    const options = library.filter((item) => item.chapterId === chapterId);
+    const options = library.filter((item) => item.book === currentDoc?.book && item.chapterId === chapterId);
+    if (!options.length || options[0].locked) return;
     setDocumentId((options.find((item) => item.preferred) ?? options[0]).id);
     setSidebarOpen(false);
   }
-  const chapterIndex = chapters.findIndex((item) => item.chapterId === currentDoc?.chapterId);
+  const chapterIndex = openChapters.findIndex((item) => item.chapterId === currentDoc?.chapterId);
   if (!currentDoc) return <main className="empty-library">还没有可阅读的译文。</main>;
 
   return <div className="reader-shell" data-theme={theme} style={{ '--reader-size': `${fontSize}px`, '--reader-leading': lineHeight, '--reader-measure': `${measure}px` } as React.CSSProperties}>
@@ -143,7 +147,7 @@ export default function Home() {
       </div>
       <div className="bar-center">
         <div className="bar-title"><span>{currentDoc.chapterTitle}</span><strong>{currentDoc.title.replace(/^第\s*\d+\s*章[　\s]*/, '')}</strong></div>
-        <fieldset className="document-switcher"><legend className="sr-only">选择译文版本</legend>{chapterDocuments.map((item) => <button className={item.id === currentDoc.id ? 'active' : ''} key={item.id} onClick={() => setDocumentId(item.id)}>{item.preferred ? '易读版' : '忠实版'}<small>{item.variant}</small></button>)}</fieldset>
+        <fieldset className="document-switcher"><legend className="sr-only">选择阅读内容</legend>{chapterDocuments.map((item) => <button className={item.id === currentDoc.id ? 'active' : ''} key={item.id} onClick={() => setDocumentId(item.id)}>{item.variant === '伴读' || item.variant === '原文版' ? item.variant : item.preferred ? '易读版' : '忠实版'}<small>{item.variant}</small></button>)}</fieldset>
       </div>
       <div className="bar-actions">
         <Button variant="ghost" size="icon" aria-label="切换日夜主题" onClick={() => setTheme(theme === 'night' ? 'green' : 'night')}>{theme === 'night' ? <Sun /> : <Moon />}</Button>
@@ -154,7 +158,7 @@ export default function Home() {
 
     <aside className={`library-panel ${sidebarOpen ? 'is-open' : ''}`} aria-label="书籍目录">
       <div className="panel-heading"><div><span className="eyebrow">书架</span><h2>{currentDoc.book}</h2></div><Button className="mobile-close" variant="ghost" size="icon" aria-label="关闭目录" onClick={() => setSidebarOpen(false)}><X /></Button></div>
-      <nav className="chapter-list">{chapters.map((chapter) => <button className={chapter.chapterId === currentDoc.chapterId ? 'active' : ''} key={chapter.chapterId} onClick={() => chooseChapter(chapter.chapterId)}><span>{String(chapter.chapterNumber).padStart(2, '0')}</span><div><strong>{chapter.chapterTitle}</strong><small>{library.filter((item) => item.chapterId === chapter.chapterId).length} 个版本</small></div></button>)}</nav>
+      <nav className="chapter-list">{chapters.map((chapter) => <button className={chapter.chapterId === currentDoc.chapterId ? 'active' : ''} key={chapter.chapterId} disabled={chapter.locked} onClick={() => chooseChapter(chapter.chapterId)}><span>{String(chapter.chapterNumber).padStart(2, '0')}</span><div><strong>{chapter.chapterTitle}</strong><small>{chapter.locked ? '待伴读' : `${library.filter((item) => item.book === chapter.book && item.chapterId === chapter.chapterId).length} 个版本`}</small></div></button>)}</nav>
       <div className="toc"><span className="eyebrow">本章目录</span>{toc.map((title, index) => <button key={`${title}-${index}`} onClick={() => globalThis.document.querySelectorAll('.reader-content h2')[index]?.scrollIntoView({ behavior: 'smooth' })}>{title}</button>)}</div>
     </aside>
     {sidebarOpen && <button className="scrim" aria-label="关闭目录" onClick={() => setSidebarOpen(false)} />}
@@ -170,7 +174,7 @@ export default function Home() {
 
     <main className={`reading-stage ${sidebarOpen ? 'with-sidebar' : ''}`}><article className="reader-page">
       <div className="reader-content"><MarkdownArticle source={currentDoc} /></div>
-      <footer className="chapter-footer"><Button variant="outline" disabled={chapterIndex <= 0} onClick={() => chooseChapter(chapters[chapterIndex - 1].chapterId)}><ChevronLeft />上一章</Button><span>读到这里会自动记住位置</span><Button variant="outline" disabled={chapterIndex < 0 || chapterIndex >= chapters.length - 1} onClick={() => chooseChapter(chapters[chapterIndex + 1].chapterId)}>下一章<ChevronRight /></Button></footer>
+      <footer className="chapter-footer"><Button variant="outline" disabled={chapterIndex <= 0} onClick={() => chooseChapter(openChapters[chapterIndex - 1].chapterId)}><ChevronLeft />上一章</Button><span>读到这里会自动记住位置</span><Button variant="outline" disabled={chapterIndex < 0 || chapterIndex >= openChapters.length - 1} onClick={() => chooseChapter(openChapters[chapterIndex + 1].chapterId)}>下一章<ChevronRight /></Button></footer>
     </article></main>
   </div>;
 }

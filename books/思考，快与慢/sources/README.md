@@ -7,6 +7,8 @@ EPUB 章节 href 和抽取块不是印刷页码；图表、脚注和公式须检
 
 | 单元 | 英文章名 | EPUB 起点 |
 |---|---|---|
+| introduction | Introduction | `OEBPS/9781429969352_dm01.xhtml` |
+| part_i | Part I. Two Systems | `OEBPS/9781429969352_pt01.xhtml` |
 | ch01 | The Characters of the Story | `OEBPS/9781429969352_ch01.xhtml#ch01` |
 | ch02 | Attention and Effort | `OEBPS/9781429969352_ch02.xhtml#ch02` |
 | ch03 | The Lazy Controller | `OEBPS/9781429969352_ch03.xhtml#ch03` |
@@ -16,6 +18,7 @@ EPUB 章节 href 和抽取块不是印刷页码；图表、脚注和公式须检
 | ch07 | A Machine for Jumping to Conclusions | `OEBPS/9781429969352_ch07.xhtml#ch07` |
 | ch08 | How Judgments Happen | `OEBPS/9781429969352_ch08.xhtml#ch08` |
 | ch09 | Answering an Easier Question | `OEBPS/9781429969352_ch09.xhtml#ch09` |
+| part_ii | Part II. Heuristics and Biases | `OEBPS/9781429969352_pt02.xhtml` |
 | ch10 | The Law of Small Numbers | `OEBPS/9781429969352_ch10.xhtml#ch10` |
 | ch11 | Anchors | `OEBPS/9781429969352_ch11.xhtml#ch11` |
 | ch12 | The Science of Availability | `OEBPS/9781429969352_ch12.xhtml#ch12` |
@@ -25,12 +28,14 @@ EPUB 章节 href 和抽取块不是印刷页码；图表、脚注和公式须检
 | ch16 | Causes Trump Statistics | `OEBPS/9781429969352_ch16.xhtml#ch16` |
 | ch17 | Regression to the Mean | `OEBPS/9781429969352_ch17.xhtml#ch17` |
 | ch18 | Taming Intuitive Predictions | `OEBPS/9781429969352_ch18.xhtml#ch18` |
+| part_iii | Part III. Overconfidence | `OEBPS/9781429969352_pt03.xhtml` |
 | ch19 | The Illusion of Understanding | `OEBPS/9781429969352_ch19.xhtml#ch19` |
 | ch20 | The Illusion of Validity | `OEBPS/9781429969352_ch20.xhtml#ch20` |
 | ch21 | Intuitions Vs. Formulas | `OEBPS/9781429969352_ch21.xhtml#ch21` |
 | ch22 | Expert Intuition: When Can We Trust It? | `OEBPS/9781429969352_ch22.xhtml#ch22` |
 | ch23 | The Outside View | `OEBPS/9781429969352_ch23.xhtml#ch23` |
 | ch24 | The Engine of Capitalism | `OEBPS/9781429969352_ch24.xhtml#ch24` |
+| part_iv | Part IV. Choices | `OEBPS/9781429969352_pt04.xhtml` |
 | ch25 | Bernoulli’s Errors | `OEBPS/9781429969352_ch25.xhtml#ch25` |
 | ch26 | Prospect Theory | `OEBPS/9781429969352_ch26.xhtml#ch26` |
 | ch27 | The Endowment Effect | `OEBPS/9781429969352_ch27.xhtml#ch27` |
@@ -41,10 +46,12 @@ EPUB 章节 href 和抽取块不是印刷页码；图表、脚注和公式须检
 | ch32 | Keeping Score | `OEBPS/9781429969352_ch32.xhtml#ch32` |
 | ch33 | Reversals | `OEBPS/9781429969352_ch33.xhtml#ch33` |
 | ch34 | Frames and Reality | `OEBPS/9781429969352_ch34.xhtml#ch34` |
+| part_v | Part V. Two Selves | `OEBPS/9781429969352_pt05.xhtml` |
 | ch35 | Two Selves | `OEBPS/9781429969352_ch35.xhtml#ch35` |
 | ch36 | Life as a Story | `OEBPS/9781429969352_ch36.xhtml#ch36` |
 | ch37 | Experienced Well-Being | `OEBPS/9781429969352_ch37.xhtml#ch37` |
 | ch38 | Thinking About Life | `OEBPS/9781429969352_ch38.xhtml#ch38` |
+| conclusions | Conclusions | `OEBPS/9781429969352_bm01.xhtml#bm01` |
 
 ## 读取
 

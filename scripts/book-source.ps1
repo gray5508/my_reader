@@ -9,7 +9,7 @@ $bookPythonCommand = Get-Command python.exe -ErrorAction SilentlyContinue
 if ($bookPythonCommand -and $bookPythonCommand.Source -notlike '*\WindowsApps\*') {
     $bookPythonCandidates += $bookPythonCommand.Source
 }
-$bookPythonCandidates += 'C:/Users/cicii/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe'
+$bookPythonCandidates += (Join-Path $env:USERPROFILE '.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe')
 $bookPythonExecutable = $null
 foreach ($bookPythonCandidate in ($bookPythonCandidates | Select-Object -Unique)) {
     if (Test-Path -LiteralPath $bookPythonCandidate -PathType Leaf) {

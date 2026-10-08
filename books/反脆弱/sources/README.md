@@ -72,7 +72,7 @@ Windows 推荐在项目根目录运行下列入口；它优先检测 PATH 的 Py
 .\scripts\book-source.ps1 read --lang zh --unit ch01 --offset 0 --limit 3000
 ```
 
-也可用 `python scripts/book_source.py ...`。本机准确解释器为 `C:/Users/cicii/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe`。
+也可用 `python scripts/book_source.py ...`。PowerShell 入口会检测当前用户目录中的 Codex 配套 Python。
 
 `read` 默认最多输出 6000 字符，最大 20000。按输出中的 `next_offset` 续读同一单元；offset 是带定位标记的抽取文本的字符偏移，并非原书字符号。
 EPUB 每块含 `[EPUB href#p0001]`，分段头会重复当前位置，防止切在段中时失去定位。

@@ -3,10 +3,22 @@
   "source": {
     "path": "books/思考，快与慢/Thinking, Fast and Slow (Daniel Kahneman) (z-library.sk, 1lib.sk, z-lib.sk).epub",
     "bytes": 4038963,
-    "mtime_ns": 1790650302402769100,
+    "mtime_ns": 1790934639698764600,
     "sha256": "42b95962005cffe54197bc782d75ab5c75e58df8a2edbfc26ccbaad86c927bd3"
   },
   "units": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "epub_href": "OEBPS/9781429969352_dm01.xhtml",
+      "toc_href": "OEBPS/9781429969352_dm01.xhtml"
+    },
+    {
+      "id": "part_i",
+      "title": "Part I. Two Systems",
+      "epub_href": "OEBPS/9781429969352_pt01.xhtml",
+      "toc_href": "OEBPS/9781429969352_pt01.xhtml"
+    },
     {
       "id": "ch01",
       "title": "The Characters of the Story",
@@ -60,6 +72,12 @@
       "title": "Answering an Easier Question",
       "epub_href": "OEBPS/9781429969352_ch09.xhtml",
       "toc_href": "OEBPS/9781429969352_ch09.xhtml#ch09"
+    },
+    {
+      "id": "part_ii",
+      "title": "Part II. Heuristics and Biases",
+      "epub_href": "OEBPS/9781429969352_pt02.xhtml",
+      "toc_href": "OEBPS/9781429969352_pt02.xhtml"
     },
     {
       "id": "ch10",
@@ -116,6 +134,12 @@
       "toc_href": "OEBPS/9781429969352_ch18.xhtml#ch18"
     },
     {
+      "id": "part_iii",
+      "title": "Part III. Overconfidence",
+      "epub_href": "OEBPS/9781429969352_pt03.xhtml",
+      "toc_href": "OEBPS/9781429969352_pt03.xhtml"
+    },
+    {
       "id": "ch19",
       "title": "The Illusion of Understanding",
       "epub_href": "OEBPS/9781429969352_ch19.xhtml",
@@ -150,6 +174,12 @@
       "title": "The Engine of Capitalism",
       "epub_href": "OEBPS/9781429969352_ch24.xhtml",
       "toc_href": "OEBPS/9781429969352_ch24.xhtml#ch24"
+    },
+    {
+      "id": "part_iv",
+      "title": "Part IV. Choices",
+      "epub_href": "OEBPS/9781429969352_pt04.xhtml",
+      "toc_href": "OEBPS/9781429969352_pt04.xhtml"
     },
     {
       "id": "ch25",
@@ -212,6 +242,12 @@
       "toc_href": "OEBPS/9781429969352_ch34.xhtml#ch34"
     },
     {
+      "id": "part_v",
+      "title": "Part V. Two Selves",
+      "epub_href": "OEBPS/9781429969352_pt05.xhtml",
+      "toc_href": "OEBPS/9781429969352_pt05.xhtml"
+    },
+    {
       "id": "ch35",
       "title": "Two Selves",
       "epub_href": "OEBPS/9781429969352_ch35.xhtml",
@@ -234,6 +270,12 @@
       "title": "Thinking About Life",
       "epub_href": "OEBPS/9781429969352_ch38.xhtml",
       "toc_href": "OEBPS/9781429969352_ch38.xhtml#ch38"
+    },
+    {
+      "id": "conclusions",
+      "title": "Conclusions",
+      "epub_href": "OEBPS/9781429969352_bm01.xhtml",
+      "toc_href": "OEBPS/9781429969352_bm01.xhtml#bm01"
     }
   ],
   "location_note": "EPUB extraction blocks and offsets are not print pages; check XHTML for figures and notes."

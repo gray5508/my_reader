@@ -36,16 +36,20 @@ def index() -> None:
     path = source_file()
     info = epub_info(path)
     units = []
+    extras = {"Introduction": "introduction", "Conclusions": "conclusions",
+              **{f"Part {roman}.": f"part_{roman.lower()}" for roman in ("I", "II", "III", "IV", "V")}}
     for entry in info["toc"]:
         match = re.match(r"^(\d+)\.\s+(.+)$", entry["title"])
-        if not match:
+        extra = next((uid for prefix, uid in extras.items() if entry["title"].startswith(prefix)), None)
+        if not match and not extra:
             continue
         href = entry["href"].split("#", 1)[0]
         if href not in info["spine"]:
             raise ValueError(f"Chapter is missing from EPUB spine: {href}")
-        units.append({"id": f"ch{int(match[1]):02d}", "title": match[2],
+        units.append({"id": f"ch{int(match[1]):02d}" if match else extra,
+                      "title": match[2] if match else entry["title"],
                       "epub_href": href, "toc_href": entry["href"]})
-    if [x["id"] for x in units] != [f"ch{i:02d}" for i in range(1, 39)]:
+    if [x["id"] for x in units if x["id"].startswith("ch")] != [f"ch{i:02d}" for i in range(1, 39)]:
         raise ValueError("Unexpected chapter sequence; inspect EPUB TOC before proceeding")
     data = {"schema_version": 1, "source": fingerprint(path), "units": units,
             "location_note": "EPUB extraction blocks and offsets are not print pages; check XHTML for figures and notes."}
@@ -62,7 +66,7 @@ def index() -> None:
              "python scripts/thinking_source.py read --unit ch01 --offset 0 --limit 6000", "```", "",
              "读取结果的 offset 是带定位标记的抽取字符位置，只在同一单元内有效。", ""]
     (INDEX.parent / "README.md").write_text("\n".join(rows), encoding="utf-8")
-    print(f"Indexed {len(units)} chapters from {path.name}")
+    print(f"Indexed {len(units)} units from {path.name}")
 
 
 def load_index() -> dict:
