@@ -29,6 +29,12 @@ npm run sync:reader
 
 只有修改阅读器界面或加载机制时才运行 `npm run build:offline`。离线页面的界面源码位于 `reader-web/offline-reader.html` 和 `reader-web/offline-reader.js`；`reader-web/` 仍保留开发版网站，日常阅读不需要运行它。
 
+## 手机联网阅读
+
+GitHub Pages 入口：[在线阅读器](https://gray5508.github.io/my_reader/)。手机浏览器打开即可阅读；阅读位置和外观设置分别保存在各设备的浏览器中。
+
+每次向 `main` 推送后，`.github/workflows/reader-pages.yml` 会重新汇集章节内容并发布阅读器。发布产物仅含阅读器页面和由章节 Markdown 汇集的阅读数据，不含 `ebook/`、个人讨论或进度文件。这个 Pages 站点对所有知道网址的人公开。
+
 ## 项目结构
 
 ```text
