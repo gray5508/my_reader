@@ -33,7 +33,7 @@ npm run sync:reader
 
 GitHub Pages 入口：[在线阅读器](https://gray5508.github.io/my_reader/)。手机浏览器打开即可阅读；阅读位置和外观设置分别保存在各设备的浏览器中。
 
-每次向 `main` 推送后，`.github/workflows/reader-pages.yml` 会重新汇集章节内容并发布阅读器。发布产物仅含阅读器页面和由章节 Markdown 汇集的阅读数据，不含 `ebook/`、个人讨论或进度文件。这个 Pages 站点对所有知道网址的人公开。
+每次向 `main` 推送后，`.github/workflows/reader-pages.yml` 会重新汇集章节内容并发布阅读器。发布产物包含阅读器页面、由章节 Markdown 汇集的阅读数据和 `reader-web/public/` 中的章节图片，不含 `ebook/`、个人讨论或进度文件。这个 Pages 站点对所有知道网址的人公开。
 
 ## 项目结构
 

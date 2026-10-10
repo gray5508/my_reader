@@ -31,8 +31,10 @@ jobs:
       - name: Prepare public files
         run: |
           mkdir -p _site/reader-data
+          mkdir -p _site/reader-web
           cp '打开阅读器.html' _site/index.html
           cp reader-data/library.js _site/reader-data/library.js
+          cp -R reader-web/public _site/reader-web/public
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with:
