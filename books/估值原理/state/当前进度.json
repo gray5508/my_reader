@@ -1,0 +1,12 @@
+{
+  "book": "估值原理",
+  "assistant_indexed_units": "01-26",
+  "assistant_companioned_units": [1],
+  "assistant_easy_read_units": [1],
+  "assistant_original_export_units": [1],
+  "user_read_units": [],
+  "user_current_unit": null,
+  "user_current_position": null,
+  "next_unit": 2,
+  "note": "26 个正文单元已建索引和导航小结；第 01 单元的伴读、易读版、原文版已完成。自序、目录和参考书目只记录为书源定位。未将任何篇目标记为用户已读。"
+}

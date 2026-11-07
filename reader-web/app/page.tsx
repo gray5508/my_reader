@@ -147,7 +147,7 @@ export default function Home() {
       </div>
       <div className="bar-center">
         <div className="bar-title"><span>{currentDoc.chapterTitle}</span><strong>{currentDoc.title.replace(/^第\s*\d+\s*章[　\s]*/, '')}</strong></div>
-        <fieldset className="document-switcher"><legend className="sr-only">选择阅读内容</legend>{chapterDocuments.map((item) => <button className={item.id === currentDoc.id ? 'active' : ''} key={item.id} onClick={() => setDocumentId(item.id)}>{item.variant === '伴读' || item.variant === '原文版' ? item.variant : item.preferred ? '易读版' : '忠实版'}<small>{item.variant}</small></button>)}</fieldset>
+        <fieldset className="document-switcher"><legend className="sr-only">选择阅读内容</legend>{chapterDocuments.map((item) => <button className={item.id === currentDoc.id ? 'active' : ''} key={item.id} onClick={() => setDocumentId(item.id)}>{item.variant === '中文语境易读版' ? '易读版' : item.variant === '忠实核对版' ? '忠实版' : item.variant}<small>{item.variant}</small></button>)}</fieldset>
       </div>
       <div className="bar-actions">
         <Button variant="ghost" size="icon" aria-label="切换日夜主题" onClick={() => setTheme(theme === 'night' ? 'green' : 'night')}>{theme === 'night' ? <Sun /> : <Moon />}</Button>

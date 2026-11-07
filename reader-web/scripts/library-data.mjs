@@ -59,6 +59,7 @@ export async function collectLibrary() {
         : book === '思考，快与慢' ? thinkingUnits.get(chapterId) : undefined;
       if (!/^ch\d+$/i.test(chapterId) && !extra && !(book === '毛泽东选集' && /^a\d+$/i.test(chapterId))) continue;
       const chapterRoot = path.join(chaptersRoot, chapterId);
+      const valuationTitle = book === '估值原理' ? (chapterId === 'ch00' ? '全书索引' : (await readFile(path.join(chapterRoot, '000_索引小结.md'), 'utf8')).match(/^#\s+\d{2} (.+?)｜/)?.[1]) : null;
       const files = (await readdir(chapterRoot))
         .filter((name) => /^\d+_.+\.md$/i.test(name))
         .sort((a, b) => a.localeCompare(b, 'zh-CN'));
@@ -80,7 +81,7 @@ export async function collectLibrary() {
           chapterId,
           chapterNumber: maoArticle?.number ?? number,
           sortOrder: maoArticle?.number ?? (extra ? extra[0] : number),
-          chapterTitle: maoArticle ? `卷${maoArticle.volume} · ${maoArticle.title}` : extra ? extra[1] : book === '聪明的投资者' && number === 0 ? '序言与导论' : `第 ${number} ${book === '人生财富靠康波' ? '篇' : '章'}`,
+          chapterTitle: valuationTitle ?? (maoArticle ? `卷${maoArticle.volume} · ${maoArticle.title}` : extra ? extra[1] : book === '聪明的投资者' && number === 0 ? '序言与导论' : `第 ${number} ${book === '人生财富靠康波' ? '篇' : '章'}`),
           group: maoArticle?.group ?? null,
           title: content.match(/^#\s+(.+)$/m)?.[1]?.trim() || `${book} · 第 ${number} 章`,
           variant: variant.label,
