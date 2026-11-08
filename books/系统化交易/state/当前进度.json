@@ -1,0 +1,84 @@
+{
+  "book": "系统化交易",
+  "source": "ebook/Systematic Trading.epub",
+  "source_sha256": "8d26a3fb528bc38d23b6d61c22193502f41e77f0854e62c3c42dba512fad7356",
+  "assistant_indexed_chapters": "01-15",
+  "assistant_companioned_chapters": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "assistant_easy_read_chapters": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "assistant_original_export_chapters": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "reader_synced_through_chapter": 15,
+  "assistant_companioned_extra_units": [
+    "epilogue",
+    "appendix_a"
+  ],
+  "assistant_easy_read_extra_units": [
+    "epilogue",
+    "appendix_a"
+  ],
+  "assistant_original_export_extra_units": [
+    "epilogue",
+    "appendix_a"
+  ],
+  "reader_synced_through_unit": "appendix_a",
+  "next_chapter": null,
+  "next_unit": "appendix_b",
+  "next_epub_href": "OEBPS/Autopilot_ebook-30.xhtml",
+  "skipped_extra_units_by_user": [
+    "glossary"
+  ],
+  "user_read_chapters": [],
+  "user_current_chapter": null,
+  "user_current_position": null,
+  "pending_checks": [
+    "第 14–15 章、后记及附录 A 本地阅读器三种入口的浏览器界面检查：内置浏览器安全策略拒绝 file://，开发服务器缺少 vinext；同步数据已静态核验各单元三种入口均解锁且内容非空。"
+  ],
+  "handoff_note": "第 1–15 章、后记 epilogue 及附录 A appendix_a 的伴读、中文易读版、英文原文版已完成并同步书架。附录 A 逐块重读 80 个 EPUB 块，对照 OEBPS/Autopilot_ebook-29.xhtml 核对一张八行数据来源表、无图片和脚注；source export/check 通过。书架静态核验三种入口均解锁且内容非空。用户明确要求跳过术语表，未制作也未加入书架。systematic_source.py 保留表 18、44、47 的既有转排修正；后记与附录 A 由已索引的非 ch 单元导出。浏览器界面仍受已知环境限制（file:// 被安全策略拒绝，开发服务器缺少 vinext），不可绕过安全策略。用户已读仍未确认。下一单元按原书顺序为附录 B appendix_b，尚未逐块重读或制作；之后依次附录 C、D。"
+}

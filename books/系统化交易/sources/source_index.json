@@ -1,0 +1,203 @@
+{
+  "title": "Systematic Trading",
+  "author": "Robert Carver",
+  "source": "ebook/Systematic Trading.epub",
+  "published": 2015,
+  "sha256": "8d26a3fb528bc38d23b6d61c22193502f41e77f0854e62c3c42dba512fad7356",
+  "bytes": 2710498,
+  "location_note": "EPUB href and block numbers are not print page numbers. Tables, images, formulas, and footnotes require checking original XHTML and assets.",
+  "units": [
+    {
+      "id": "ch01",
+      "title": "Chapter One. The Flawed Human Brain",
+      "href": "OEBPS/Autopilot_ebook-8.xhtml",
+      "paragraphs": 99,
+      "images": 3,
+      "words_approx": 4849
+    },
+    {
+      "id": "ch02",
+      "title": "Chapter Two. Systematic Trading Rules",
+      "href": "OEBPS/Autopilot_ebook-9.xhtml",
+      "paragraphs": 280,
+      "images": 1,
+      "words_approx": 9224
+    },
+    {
+      "id": "ch03",
+      "title": "Chapter Three. Fitting",
+      "href": "OEBPS/Autopilot_ebook-11.xhtml",
+      "paragraphs": 230,
+      "images": 8,
+      "words_approx": 6260
+    },
+    {
+      "id": "ch04",
+      "title": "Chapter Four. Portfolio Allocation",
+      "href": "OEBPS/Autopilot_ebook-12.xhtml",
+      "paragraphs": 506,
+      "images": 4,
+      "words_approx": 6427
+    },
+    {
+      "id": "ch05",
+      "title": "Chapter Five. Framework Overview",
+      "href": "OEBPS/Autopilot_ebook-14.xhtml",
+      "paragraphs": 57,
+      "images": 1,
+      "words_approx": 2271
+    },
+    {
+      "id": "ch06",
+      "title": "Chapter Six. Instruments",
+      "href": "OEBPS/Autopilot_ebook-15.xhtml",
+      "paragraphs": 68,
+      "images": 1,
+      "words_approx": 2348
+    },
+    {
+      "id": "ch07",
+      "title": "Chapter Seven. Forecasts",
+      "href": "OEBPS/Autopilot_ebook-16.xhtml",
+      "paragraphs": 159,
+      "images": 3,
+      "words_approx": 5579
+    },
+    {
+      "id": "ch08",
+      "title": "Chapter Eight. Combined Forecasts",
+      "href": "OEBPS/Autopilot_ebook-17.xhtml",
+      "paragraphs": 172,
+      "images": 2,
+      "words_approx": 2551
+    },
+    {
+      "id": "ch09",
+      "title": "Chapter Nine. Volatility targeting",
+      "href": "OEBPS/Autopilot_ebook-18.xhtml",
+      "paragraphs": 319,
+      "images": 2,
+      "words_approx": 6192
+    },
+    {
+      "id": "ch10",
+      "title": "Chapter Ten. Position Sizing",
+      "href": "OEBPS/Autopilot_ebook-19.xhtml",
+      "paragraphs": 116,
+      "images": 3,
+      "words_approx": 3509
+    },
+    {
+      "id": "ch11",
+      "title": "Chapter Eleven. Portfolios",
+      "href": "OEBPS/Autopilot_ebook-20.xhtml",
+      "paragraphs": 231,
+      "images": 1,
+      "words_approx": 3663
+    },
+    {
+      "id": "ch12",
+      "title": "Chapter Twelve. Speed and Size",
+      "href": "OEBPS/Autopilot_ebook-21.xhtml",
+      "paragraphs": 521,
+      "images": 1,
+      "words_approx": 11402
+    },
+    {
+      "id": "ch13",
+      "title": "Chapter Thirteen. Semi-automatic Trader",
+      "href": "OEBPS/Autopilot_ebook-23.xhtml",
+      "paragraphs": 526,
+      "images": 0,
+      "words_approx": 5534
+    },
+    {
+      "id": "ch14",
+      "title": "Chapter Fourteen. Asset Allocating Investor",
+      "href": "OEBPS/Autopilot_ebook-24.xhtml",
+      "paragraphs": 1139,
+      "images": 0,
+      "words_approx": 5622
+    },
+    {
+      "id": "ch15",
+      "title": "Chapter Fifteen. Staunch Systems Trader",
+      "href": "OEBPS/Autopilot_ebook-25.xhtml",
+      "paragraphs": 512,
+      "images": 0,
+      "words_approx": 4218
+    },
+    {
+      "id": "preface",
+      "title": "Preface",
+      "href": "OEBPS/Autopilot_ebook-5.xhtml",
+      "paragraphs": 43,
+      "images": 0,
+      "words_approx": 2022
+    },
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "href": "OEBPS/Autopilot_ebook-6.xhtml",
+      "paragraphs": 60,
+      "images": 1,
+      "words_approx": 2660
+    },
+    {
+      "id": "epilogue",
+      "title": "Epilogue. What Makes a Good Systematic Trader?",
+      "href": "OEBPS/Autopilot_ebook-26.xhtml",
+      "paragraphs": 13,
+      "images": 0,
+      "words_approx": 571
+    },
+    {
+      "id": "glossary",
+      "title": "Glossary",
+      "href": "OEBPS/Autopilot_ebook-27.xhtml",
+      "paragraphs": 224,
+      "images": 0,
+      "words_approx": 4227
+    },
+    {
+      "id": "appendix_a",
+      "title": "Appendix A. Resources",
+      "href": "OEBPS/Autopilot_ebook-29.xhtml",
+      "paragraphs": 67,
+      "images": 0,
+      "words_approx": 1291
+    },
+    {
+      "id": "appendix_b",
+      "title": "Appendix B. Trading Rules",
+      "href": "OEBPS/Autopilot_ebook-30.xhtml",
+      "paragraphs": 161,
+      "images": 0,
+      "words_approx": 2474
+    },
+    {
+      "id": "appendix_c",
+      "title": "Appendix C. Portfolio Optimisation",
+      "href": "OEBPS/Autopilot_ebook-31.xhtml",
+      "paragraphs": 218,
+      "images": 0,
+      "words_approx": 1558
+    },
+    {
+      "id": "appendix_d",
+      "title": "Appendix D. Framework Details",
+      "href": "OEBPS/Autopilot_ebook-32.xhtml",
+      "paragraphs": 28,
+      "images": 0,
+      "words_approx": 592
+    },
+    {
+      "id": "acknowledgements",
+      "title": "Acknowledgements",
+      "href": "OEBPS/Autopilot_ebook-33.xhtml",
+      "paragraphs": 5,
+      "images": 0,
+      "words_approx": 354
+    }
+  ]
+}

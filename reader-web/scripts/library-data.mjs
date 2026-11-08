@@ -23,6 +23,7 @@ const thinkingUnits = new Map([
   ['part_iv', [24.5, '第四部分引言']], ['part_v', [34.5, '第五部分引言']],
   ['conclusions', [38.5, '结语']],
 ]);
+const systematicUnits = new Map([['epilogue', [15.5, '后记']], ['appendix_a', [16, '附录 A']]]);
 
 async function directories(parent) {
   return (await readdir(parent, { withFileTypes: true }))
@@ -51,14 +52,15 @@ function mergeBatches(parts) {
 export async function collectLibrary() {
   const documents = [];
   for (const book of await directories(booksRoot)) {
-    const valuationAssetSlug = book === '估值原理' ? createHash('sha1').update(book).digest('hex') : null;
+    const assetBookSlug = book === '估值原理' || book === '系统化交易' ? createHash('sha1').update(book).digest('hex') : null;
     const maoArticles = book === '毛泽东选集'
       ? JSON.parse(await readFile(path.join(booksRoot, book, '目录.json'), 'utf8')) : [];
     const maoById = new Map(maoArticles.map((item) => [item.chapterId, item]));
     const chaptersRoot = path.join(booksRoot, book, 'chapters');
     for (const chapterId of await directories(chaptersRoot)) {
       const extra = book === '反脆弱' ? antifragileUnits.get(chapterId)
-        : book === '思考，快与慢' ? thinkingUnits.get(chapterId) : undefined;
+        : book === '思考，快与慢' ? thinkingUnits.get(chapterId)
+          : book === '系统化交易' ? systematicUnits.get(chapterId) : undefined;
       if (!/^ch\d+$/i.test(chapterId) && !extra && !(book === '毛泽东选集' && /^a\d+$/i.test(chapterId))) continue;
       const chapterRoot = path.join(chaptersRoot, chapterId);
       const valuationTitle = book === '估值原理' ? (chapterId === 'ch00' ? '全书索引' : (await readFile(path.join(chapterRoot, '000_索引小结.md'), 'utf8')).match(/^#\s+\d{2} (.+?)｜/)?.[1]) : null;
@@ -69,13 +71,13 @@ export async function collectLibrary() {
       for (const file of files) {
         const variant = variantFor(file);
         const raw = await readFile(path.join(chapterRoot, file), 'utf8');
-        const assets = valuationAssetSlug ? [...raw.matchAll(/\[[^\]]*\]\(assets\/([\w.-]+)\)/g)].map((match) => match[1]) : [];
+        const assets = assetBookSlug ? [...raw.matchAll(/\[[^\]]*\]\(assets\/([\w.-]+)\)/g)].map((match) => match[1]) : [];
         if (assets.length) {
-          const publicDir = path.join(appRoot, 'public', valuationAssetSlug, chapterId);
+          const publicDir = path.join(appRoot, 'public', assetBookSlug, chapterId);
           await mkdir(publicDir, { recursive: true });
           for (const asset of new Set(assets)) await copyFile(path.join(chapterRoot, 'assets', asset), path.join(publicDir, asset));
         }
-        const content = valuationAssetSlug ? raw.replace(/(\[[^\]]*\]\()assets\/([\w.-]+)\)/g, `$1reader-web/public/${valuationAssetSlug}/${chapterId}/$2)`) : raw;
+        const content = assetBookSlug ? raw.replace(/(\[[^\]]*\]\()assets\/([\w.-]+)\)/g, `$1reader-web/public/${assetBookSlug}/${chapterId}/$2)`) : raw;
         const parts = variants.get(variant.key) ?? { ...variant, parts: [] };
         parts.parts.push({ file, content });
         variants.set(variant.key, parts);
@@ -108,6 +110,23 @@ export async function collectLibrary() {
           chapterNumber: article.number, sortOrder: article.number,
           chapterTitle: `卷${article.volume} · ${article.title}`, title: article.title,
           group: article.group ?? null,
+          variant: '待伴读', preferred: false, batchCount: 0, locked: true, content: '',
+        });
+      }
+    }
+    if (book === '系统化交易') {
+      const guide = await readFile(path.join(booksRoot, book, '01_全书索引.md'), 'utf8');
+      documents.push({
+        id: `${book}/index/guide`, book, chapterId: 'index', chapterNumber: 0, sortOrder: 0,
+        chapterTitle: '全书索引', title: '全书索引与章节小结', group: null,
+        variant: '索引', preferred: true, batchCount: 1, locked: false, content: guide,
+      });
+      for (let number = 1; number <= 15; number++) {
+        const chapterId = `ch${String(number).padStart(2, '0')}`;
+        if (documents.some((item) => item.book === book && item.chapterId === chapterId)) continue;
+        documents.push({
+          id: `${book}/${chapterId}/locked`, book, chapterId, chapterNumber: number, sortOrder: number,
+          chapterTitle: `第 ${number} 章`, title: `第 ${number} 章`, group: null,
           variant: '待伴读', preferred: false, batchCount: 0, locked: true, content: '',
         });
       }
