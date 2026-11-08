@@ -83,7 +83,7 @@ function MarkdownArticle({ source }: { source: LibraryDocument }) {
       const List = block.type === 'ordered' ? 'ol' : 'ul';
       return <List data-kind={block.kind} key={index}>{block.items?.map((item, itemIndex) => <li key={itemIndex}>{inline(item)}</li>)}</List>;
     }
-    return <p data-kind={block.kind} key={index}>{inline(block.text ?? '')}</p>;
+    return <p data-kind={block.kind} className={block.text?.startsWith('阅读注｜') ? 'reader-note' : undefined} key={index}>{inline(block.text ?? '')}</p>;
   })}</>;
 }
 

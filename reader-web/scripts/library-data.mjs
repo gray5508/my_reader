@@ -40,6 +40,98 @@ function variantFor(file) {
   return { key: raw, label: raw, preferred: false };
 }
 
+export function readerContent(raw, variant) {
+  const lines = raw.split(/\r?\n/);
+  let index = 1;
+  while (lines[index] === '') index++;
+
+  if (lines[index] === '## 来源与覆盖') {
+    let end = index + 1;
+    while (lines[end] === '') end++;
+    while (end < lines.length && lines[end] !== '' && !/^#{2,6}\s/.test(lines[end])) end++;
+    while (lines[end] === '') end++;
+    if (lines[end] === '## 正文' || /^---+$/.test(lines[end] ?? '')) end++;
+    lines.splice(index, end - index);
+  } else if (/^- (?:主源|英文依据|英文原文|来源范围|来源|范围)：/.test(lines[index] ?? '')) {
+    let end = index;
+    while (lines[end]?.startsWith('- ')) end++;
+    lines.splice(index, end - index);
+    if (variant.key === 'original') lines.splice(index, 0, '阅读注｜按原书顺序转排；版式细节以 EPUB 为准。');
+  } else if (lines[index] && !/^(?:#|[-*] |\d+\. )/.test(lines[index])) {
+    let end = index;
+    while (lines[end]?.trim()) end++;
+    const intro = lines.slice(index, end).join(' ');
+    if (/(?:EPUB|xhtml|html|split_|SHA-256|offset|提取流|正文块|本地块|Source:)/i.test(intro)) {
+      let note = intro
+        .replace(/^(?:本单元对应英文 EPUB|来源：英文 EPUB)\s*`[^`]+`[、，]\s*`[^`]+`。/, '本单元含两篇原书材料。')
+        .replace(/(?:，|；)?\s*(?:位置为|位于|位置在|位置：|定位于)\s*(?:英文 )?EPUB\s*`[^`]+`/g, '')
+        .replace(/自序在\s*`[^`]+`\s*，讲/g, '自序讲')
+        .replace(/^Source:\s*[^\n]*?`[^`]+`[^.]*\.\s*/i, '')
+        .replace(/`[^`]*(?:OPS\/|OEBPS\/|EPUB\/|xhtml|html|split_|#p\d|#ft_|#\d{4}|\.jpe?g|\.png|[a-f\d]{64})[^`]*`/gi, '')
+        .replace(/(?:OPS|OEBPS|EPUB)\/[\w!./#-]+/g, '')
+        .replace(/\b[\w!-]+\.(?:xhtml|html|jpe?g|png)(?:#[\w-]+)?/gi, '')
+        .replace(/(?:正文|主内容|content|text)?\s*(?:块|blocks?)\s*\d+\s*[—–-]\s*\d+(?:\s*(?:块|blocks?))?/gi, '')
+        .replace(/(?:，|；)?\s*(?:共\s*\d+\s*个非标题正文块|\d+\s*个文字块|(?:提取流|offset|本地(?:读取)?块|主内容块)[^，。；]*)/g, '')
+        .replace(/(?:，|；)?\s*(?:EPUB )?抽取块(?:与 offset)?不是印刷页码/g, '')
+        .replace(/^(?:原文|来源|原书定位)\s*[:：]\s*/i, '')
+        .replace(/^(?:英文 EPUB|EPUB)\s*[、与及，；。\s]+/, '')
+        .replace(/[，；]EPUB(?=[，；。])/g, '')
+        .replace(/^(?:与|及)\s*。/, '')
+        .replace(/^Source:\s*/i, '')
+        .replace(/^原文定位：?\s*[。；，\s]*/, '')
+        .replace(/^无独立原图、表格或本单元脚注。/, '')
+        .replace(/同一\s*。/g, '同一 EPUB。')
+        .replace(/[，；]\s*[，；。]/g, '。')
+        .replace(/（\s*）|\(\s*\)/g, '')
+        .replace(/\s+([，；。])/g, '$1')
+        .replace(/^[，；。\s]+|[，；\s]+$/g, '');
+      if (/^Source:/i.test(intro) && variant.key === 'original') {
+        note = /Zweig/.test(intro) && /Graham/.test(intro)
+          ? '格雷厄姆正文与 Zweig 后加评注分别阅读；书中的市场判断属于各自写作年代。'
+          : /Zweig/.test(intro)
+            ? 'Zweig 的评注按 2003 年写作语境阅读。'
+            : /Graham/.test(intro)
+              ? '格雷厄姆的论述按原写作年代阅读。'
+              : '';
+      }
+      if (/^(?:原文范围|定位|范围|对应\s*`)/.test(note)) note = note.replace(/^[^。]*。\s*/, '');
+      note = note
+        .replace(/^这一页只有三个英文文字块，/, '')
+        .replace(/核心提醒在\s+的\s+/g, '核心提醒是 ')
+        .replace(/^标题后\s*\d+\s*个[^。]*?[，。]/, '')
+        .replace(/^这一页只有\s*\d+\s*个英文文字块，/, '')
+        .replace(/英文主源\s*SHA-256[^。]*。?/g, '')
+        .replace(/(?:下一位置为|抽取流)[^。]*。?/g, '')
+        .replace(/^(?:与同号易读版覆盖同一范围|注释\s*\d+[—–-]\d+\s*来自)[。\s]*/g, '')
+        .replace(/^(?:本单元对应英文|英文 EPUB)\s*[、。]/, '')
+        .replace(/^[，；。\s]+|[，；\s]+$/g, '');
+      if (/^(?:本批|本范围|无图表|空白排版块|评注至此|格雷厄姆正文至此)/.test(note) && note.length < 28) note = '';
+      if (note && !/^[。；，\s]+$/.test(note)) lines.splice(index, end - index, `阅读注｜${note}`);
+      else lines.splice(index, end - index);
+    }
+  }
+  return lines.filter((line) => !/^(?:## EPUB\s+`|<!--.*-->|Source:.*(?:xhtml|html|blocks?|OPS\/|OEBPS\/|EPUB\/)|翻译依据是.*SHA-256)/i.test(line)).join('\n')
+    .replace(/^.*(?:下一源位置|下一位置)[:：].*(?:xhtml|offset).*\n?/gm, '')
+    .replace(/`[^`\n]*(?:OEBPS\/|OPS\/|EPUB\/|part\d+\.xhtml|split_\d+)[^`\n]*`(?=\s*中)/g, '原书')
+    .replace(/`[^`\n]*(?:OEBPS\/|OPS\/|EPUB\/|part\d+\.xhtml|split_\d+)[^`\n]*`/g, '')
+    .replace(/(?:OEBPS|OPS|EPUB)\/[\w!./#-]+/g, '')
+    .replace(/\bpart\d+\.xhtml\b/g, '')
+    .replace(/The original source file is\s*\./g, '')
+    .replace(/Source image:\s*;/g, '')
+    .replace(/原文在\s*[；。]/g, '')
+    .replace(/(?:下一位置|下一源位置)[，：]\s*offset\s*`?[\d–—-]+`?。?/g, '')
+    .replace(/(?:\d+|[一二三四五六七八九十]+)\s*个(?:非标题)?(?:正文|文本|文字)块/g, '')
+    .replace(/\d+\s*个有文字的正文块/g, '')
+    .replace(/有标题及(?=[，、])/g, '有标题')
+    .replace(/正文已按 EPUB 的\s*核对。?/g, '')
+    .replace(/英文原文版已转排全部\s*。?/g, '')
+    .replace(/本单元英文 EPUB\s*，/g, '')
+    .replace(/｜\s*：/g, '：')
+    .replace(/原书\s+中/g, '原书中')
+    .replace(/\s+([，；。：])/g, '$1')
+    .replace(/（\s*）|\(\s*\)/g, '');
+}
+
 function mergeBatches(parts) {
   return parts
     .map(({ content }, index) => {
@@ -77,7 +169,7 @@ export async function collectLibrary() {
           await mkdir(publicDir, { recursive: true });
           for (const asset of new Set(assets)) await copyFile(path.join(chapterRoot, 'assets', asset), path.join(publicDir, asset));
         }
-        const content = assetBookSlug ? raw.replace(/(\[[^\]]*\]\()assets\/([\w.-]+)\)/g, `$1reader-web/public/${assetBookSlug}/${chapterId}/$2)`) : raw;
+        const content = assetBookSlug ? readerContent(raw, variant).replace(/(\[[^\]]*\]\()assets\/([\w.-]+)\)/g, `$1reader-web/public/${assetBookSlug}/${chapterId}/$2)`) : readerContent(raw, variant);
         const parts = variants.get(variant.key) ?? { ...variant, parts: [] };
         parts.parts.push({ file, content });
         variants.set(variant.key, parts);
@@ -119,7 +211,7 @@ export async function collectLibrary() {
       documents.push({
         id: `${book}/index/guide`, book, chapterId: 'index', chapterNumber: 0, sortOrder: 0,
         chapterTitle: '全书索引', title: '全书索引与章节小结', group: null,
-        variant: '索引', preferred: true, batchCount: 1, locked: false, content: guide,
+        variant: '索引', preferred: true, batchCount: 1, locked: false, content: readerContent(guide, { key: 'guide' }),
       });
       for (let number = 1; number <= 15; number++) {
         const chapterId = `ch${String(number).padStart(2, '0')}`;
