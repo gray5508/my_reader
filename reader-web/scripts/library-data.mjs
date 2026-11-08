@@ -126,6 +126,7 @@ export function readerContent(raw, variant) {
     .replace(/正文已按 EPUB 的\s*核对。?/g, '')
     .replace(/英文原文版已转排全部\s*。?/g, '')
     .replace(/本单元英文 EPUB\s*，/g, '')
+    .replace(/本篇无图，(?=\n|$)/gm, '')
     .replace(/｜\s*：/g, '：')
     .replace(/原书\s+中/g, '原书中')
     .replace(/\s+([，；。：])/g, '$1')
@@ -157,7 +158,7 @@ export async function collectLibrary() {
       const chapterRoot = path.join(chaptersRoot, chapterId);
       const valuationTitle = book === '估值原理' ? (chapterId === 'ch00' ? '全书索引' : (await readFile(path.join(chapterRoot, '000_索引小结.md'), 'utf8')).match(/^#\s+\d{2} (.+?)｜/)?.[1]) : null;
       const files = (await readdir(chapterRoot))
-        .filter((name) => /^\d+_.+\.md$/i.test(name))
+        .filter((name) => /^\d+_.+\.md$/i.test(name) && !(book === '估值原理' && name === '000_索引小结.md'))
         .sort((a, b) => a.localeCompare(b, 'zh-CN'));
       const variants = new Map();
       for (const file of files) {

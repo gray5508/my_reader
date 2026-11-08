@@ -11,6 +11,7 @@ for (const item of documents) {
   assert.doesNotMatch(item.content, /(?:OEBPS\/|OPS\/|EPUB\/|\bpart\d+\.xhtml\b|\bsplit_\d+|^## 来源与覆盖|^## EPUB `)/m, item.id);
 }
 const chapter = documents.filter((item) => item.book === '估值原理' && item.chapterId === 'ch02');
+assert.equal(chapter.length, 3);
 for (const variant of ['伴读', '中文语境易读版', '原文版']) {
   const item = chapter.find((document) => document.variant === variant);
   assert.ok(item, variant);
