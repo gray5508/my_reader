@@ -101,8 +101,9 @@ function renderHome() {
       const hasHistory = validDocument(state.lastBookDocuments[book])?.book === book;
       const companion = book === '人生财富靠康波';
       const mao = book === '毛泽东选集';
-      const detail = mao ? `${openChapters(book).length} 篇精选已就绪 · 共 ${count} 篇` : companion ? `${count} 篇伴读已就绪` : `${count} 章已有译文 · 忠实版 / 易读版`;
-      const entry = mao ? `${esc(last.chapterTitle)}` : `第 ${last.chapterNumber} ${companion ? '篇' : '章'}`;
+      const valuation = book === '估值原理';
+      const detail = valuation ? '26 单元伴读、易读版和原文版已就绪' : mao ? `${openChapters(book).length} 篇精选已就绪 · 共 ${count} 篇` : companion ? `${count} 篇伴读已就绪` : `${count} 章已有译文 · 忠实版 / 易读版`;
+      const entry = valuation ? `第 ${last.chapterNumber} 单元` : mao ? `${esc(last.chapterTitle)}` : `第 ${last.chapterNumber} ${companion ? '篇' : '章'}`;
       return `<button class="book-card" data-book="${index}"><span class="book-cover" aria-hidden="true">${esc(book.slice(0, 1))}</span><span class="book-info"><strong>《${esc(book)}》</strong><small>${detail}</small><span>${hasHistory ? '继续' : '开始'}${entry} →</span></span></button>`;
     }).join('')}</div>
     ${!bookNames.length ? '<p class="empty-library">还没有可阅读的译文。</p>' : ''}

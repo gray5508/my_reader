@@ -1,4 +1,5 @@
-import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
+import { copyFile, mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -50,6 +51,7 @@ function mergeBatches(parts) {
 export async function collectLibrary() {
   const documents = [];
   for (const book of await directories(booksRoot)) {
+    const valuationAssetSlug = book === '估值原理' ? createHash('sha1').update(book).digest('hex') : null;
     const maoArticles = book === '毛泽东选集'
       ? JSON.parse(await readFile(path.join(booksRoot, book, '目录.json'), 'utf8')) : [];
     const maoById = new Map(maoArticles.map((item) => [item.chapterId, item]));
@@ -59,13 +61,21 @@ export async function collectLibrary() {
         : book === '思考，快与慢' ? thinkingUnits.get(chapterId) : undefined;
       if (!/^ch\d+$/i.test(chapterId) && !extra && !(book === '毛泽东选集' && /^a\d+$/i.test(chapterId))) continue;
       const chapterRoot = path.join(chaptersRoot, chapterId);
+      const valuationTitle = book === '估值原理' ? (chapterId === 'ch00' ? '全书索引' : (await readFile(path.join(chapterRoot, '000_索引小结.md'), 'utf8')).match(/^#\s+\d{2} (.+?)｜/)?.[1]) : null;
       const files = (await readdir(chapterRoot))
         .filter((name) => /^\d+_.+\.md$/i.test(name))
         .sort((a, b) => a.localeCompare(b, 'zh-CN'));
       const variants = new Map();
       for (const file of files) {
         const variant = variantFor(file);
-        const content = await readFile(path.join(chapterRoot, file), 'utf8');
+        const raw = await readFile(path.join(chapterRoot, file), 'utf8');
+        const assets = valuationAssetSlug ? [...raw.matchAll(/\[[^\]]*\]\(assets\/([\w.-]+)\)/g)].map((match) => match[1]) : [];
+        if (assets.length) {
+          const publicDir = path.join(appRoot, 'public', valuationAssetSlug, chapterId);
+          await mkdir(publicDir, { recursive: true });
+          for (const asset of new Set(assets)) await copyFile(path.join(chapterRoot, 'assets', asset), path.join(publicDir, asset));
+        }
+        const content = valuationAssetSlug ? raw.replace(/(\[[^\]]*\]\()assets\/([\w.-]+)\)/g, `$1reader-web/public/${valuationAssetSlug}/${chapterId}/$2)`) : raw;
         const parts = variants.get(variant.key) ?? { ...variant, parts: [] };
         parts.parts.push({ file, content });
         variants.set(variant.key, parts);
@@ -80,7 +90,7 @@ export async function collectLibrary() {
           chapterId,
           chapterNumber: maoArticle?.number ?? number,
           sortOrder: maoArticle?.number ?? (extra ? extra[0] : number),
-          chapterTitle: maoArticle ? `卷${maoArticle.volume} · ${maoArticle.title}` : extra ? extra[1] : book === '聪明的投资者' && number === 0 ? '序言与导论' : `第 ${number} ${book === '人生财富靠康波' ? '篇' : '章'}`,
+          chapterTitle: valuationTitle ?? (maoArticle ? `卷${maoArticle.volume} · ${maoArticle.title}` : extra ? extra[1] : book === '聪明的投资者' && number === 0 ? '序言与导论' : `第 ${number} ${book === '人生财富靠康波' ? '篇' : '章'}`),
           group: maoArticle?.group ?? null,
           title: content.match(/^#\s+(.+)$/m)?.[1]?.trim() || `${book} · 第 ${number} 章`,
           variant: variant.label,
