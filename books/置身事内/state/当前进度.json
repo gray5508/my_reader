@@ -1,0 +1,18 @@
+{
+  "book": "置身事内：中国政府与经济发展",
+  "source_sha256": "20b854d3fcc088a16c01d6f1998325056b8ea78734e83be46c559ed27a0a070a",
+  "chapter_count": 8,
+  "assistant_companioned_chapters": [1, 2, 3, 4, 5, 6, 7, 8],
+  "assistant_easy_read_chapters": [1, 2, 3, 4, 5, 6, 7, 8],
+  "assistant_original_export_chapters": [1, 2, 3, 4, 5, 6, 7, 8],
+  "assistant_companioned_extras": ["foreword", "part_i", "part_ii", "epilogue", "bibliography"],
+  "assistant_easy_read_extras": ["foreword", "part_i", "part_ii", "epilogue", "bibliography"],
+  "assistant_original_export_extras": ["foreword", "part_i", "part_ii", "epilogue", "bibliography"],
+  "user_read_chapters": [],
+  "user_current_chapter": null,
+  "user_current_position": null,
+  "next_chapter": null,
+  "next_extra": null,
+  "github_sync": "2026-11-09 在独立工作树隔离其他书改动，仅同步本书、书源、原文导出脚本和必要书架数据至 origin/main。",
+  "note": "八章及前言、上下篇导言、结束语、参考文献共13个单元的三份文件均已完成并同步阅读器。13份原文版逐文字块及图像字节校验通过；书架共有本书39份文档、均开放且顺序正确。第八章含24条章末注释；参考文献有251条。用户已读进度仍为空。GitHub 同步须隔离工作区其他书的未提交改动。"
+}

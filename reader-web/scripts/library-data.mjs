@@ -24,6 +24,15 @@ const thinkingUnits = new Map([
   ['conclusions', [38.5, '结语']],
 ]);
 const systematicUnits = new Map([['epilogue', [15.5, '后记']], ['appendix_a', [16, '附录 A']]]);
+const zhishiUnits = new Map([
+  ['foreword', [0, '前言']], ['part_i', [0.5, '上篇导言']],
+  ['part_ii', [4.5, '下篇导言']], ['epilogue', [8.5, '结束语']],
+  ['bibliography', [9, '参考文献']],
+]);
+const zhishiTitles = [
+  '地方政府的权力与事务', '财税与政府行为', '政府投融资与债务', '工业化中的政府角色',
+  '城市化与不平衡', '债务与风险', '国内国际失衡', '总结：政府与经济发展',
+];
 
 async function directories(parent) {
   return (await readdir(parent, { withFileTypes: true }))
@@ -145,7 +154,7 @@ function mergeBatches(parts) {
 export async function collectLibrary() {
   const documents = [];
   for (const book of await directories(booksRoot)) {
-    const assetBookSlug = book === '估值原理' || book === '系统化交易' ? createHash('sha1').update(book).digest('hex') : null;
+    const assetBookSlug = ['估值原理', '系统化交易', '置身事内'].includes(book) ? createHash('sha1').update(book).digest('hex') : null;
     const maoArticles = book === '毛泽东选集'
       ? JSON.parse(await readFile(path.join(booksRoot, book, '目录.json'), 'utf8')) : [];
     const maoById = new Map(maoArticles.map((item) => [item.chapterId, item]));
@@ -153,7 +162,8 @@ export async function collectLibrary() {
     for (const chapterId of await directories(chaptersRoot)) {
       const extra = book === '反脆弱' ? antifragileUnits.get(chapterId)
         : book === '思考，快与慢' ? thinkingUnits.get(chapterId)
-          : book === '系统化交易' ? systematicUnits.get(chapterId) : undefined;
+          : book === '系统化交易' ? systematicUnits.get(chapterId)
+            : book === '置身事内' ? zhishiUnits.get(chapterId) : undefined;
       if (!/^ch\d+$/i.test(chapterId) && !extra && !(book === '毛泽东选集' && /^a\d+$/i.test(chapterId))) continue;
       const chapterRoot = path.join(chaptersRoot, chapterId);
       const valuationTitle = book === '估值原理' ? (chapterId === 'ch00' ? '全书索引' : (await readFile(path.join(chapterRoot, '000_索引小结.md'), 'utf8')).match(/^#\s+\d{2} (.+?)｜/)?.[1]) : null;
@@ -185,7 +195,7 @@ export async function collectLibrary() {
           chapterId,
           chapterNumber: maoArticle?.number ?? number,
           sortOrder: maoArticle?.number ?? (extra ? extra[0] : number),
-          chapterTitle: valuationTitle ?? (maoArticle ? `卷${maoArticle.volume} · ${maoArticle.title}` : extra ? extra[1] : book === '聪明的投资者' && number === 0 ? '序言与导论' : `第 ${number} ${book === '人生财富靠康波' ? '篇' : '章'}`),
+          chapterTitle: valuationTitle ?? (maoArticle ? `卷${maoArticle.volume} · ${maoArticle.title}` : extra ? extra[1] : book === '置身事内' ? zhishiTitles[number - 1] : book === '聪明的投资者' && number === 0 ? '序言与导论' : `第 ${number} ${book === '人生财富靠康波' ? '篇' : '章'}`),
           group: maoArticle?.group ?? null,
           title: content.match(/^#\s+(.+)$/m)?.[1]?.trim() || `${book} · 第 ${number} 章`,
           variant: variant.label,
