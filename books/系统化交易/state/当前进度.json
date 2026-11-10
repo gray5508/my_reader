@@ -56,21 +56,73 @@
   ],
   "reader_synced_through_chapter": 15,
   "assistant_companioned_extra_units": [
+    "preface",
+    "introduction",
     "epilogue",
     "appendix_a"
   ],
   "assistant_easy_read_extra_units": [
+    "preface",
+    "introduction",
     "epilogue",
     "appendix_a"
   ],
   "assistant_original_export_extra_units": [
+    "preface",
+    "introduction",
     "epilogue",
     "appendix_a"
   ],
   "reader_synced_through_unit": "appendix_a",
+  "assistant_faithful_completed_units": [
+    "preface",
+    "introduction",
+    "ch01",
+    "ch02",
+    "ch03",
+    "ch04",
+    "ch05",
+    "ch06",
+    "ch07",
+    "ch08",
+    "ch09",
+    "ch10",
+    "ch11",
+    "ch12",
+    "ch13",
+    "ch14",
+    "ch15"
+  ],
+  "reader_synced_four_variants_through_unit": "ch15",
+  "faithful_plan_order": [
+    "preface",
+    "introduction",
+    "ch01",
+    "ch02",
+    "ch03",
+    "ch04",
+    "ch05",
+    "ch06",
+    "ch07",
+    "ch08",
+    "ch09",
+    "ch10",
+    "ch11",
+    "ch12",
+    "ch13",
+    "ch14",
+    "ch15",
+    "epilogue",
+    "appendix_a",
+    "appendix_b",
+    "appendix_c",
+    "appendix_d",
+    "acknowledgements"
+  ],
+  "github_publish_after_full_book_review": false,
   "next_chapter": null,
-  "next_unit": "appendix_b",
-  "next_epub_href": "OEBPS/Autopilot_ebook-30.xhtml",
+  "next_unit": null,
+  "next_epub_href": null,
   "skipped_extra_units_by_user": [
     "glossary"
   ],
@@ -80,5 +132,8 @@
   "pending_checks": [
     "第 14–15 章、后记及附录 A 本地阅读器三种入口的浏览器界面检查：内置浏览器安全策略拒绝 file://，开发服务器缺少 vinext；同步数据已静态核验各单元三种入口均解锁且内容非空。"
   ],
-  "handoff_note": "第 1–15 章、后记 epilogue 及附录 A appendix_a 的伴读、中文易读版、英文原文版已完成并同步书架。附录 A 逐块重读 80 个 EPUB 块，对照 OEBPS/Autopilot_ebook-29.xhtml 核对一张八行数据来源表、无图片和脚注；source export/check 通过。书架静态核验三种入口均解锁且内容非空。用户明确要求跳过术语表，未制作也未加入书架。systematic_source.py 保留表 18、44、47 的既有转排修正；后记与附录 A 由已索引的非 ch 单元导出。浏览器界面仍受已知环境限制（file:// 被安全策略拒绝，开发服务器缺少 vinext），不可绕过安全策略。用户已读仍未确认。下一单元按原书顺序为附录 B appendix_b，尚未逐块重读或制作；之后依次附录 C、D。"
+  "handoff_note": "前言、引言及第 1–15 章已完成伴读、易读版、英文原文版和中文忠实版，并同步阅读器。用户决定本轮不再补做后记，先发布当前成果；后记与附录 A 保留此前的三版，附录 B–D、致谢尚未制作。术语表按用户要求跳过。用户已读状态仍未确认。",
+  "skipped_faithful_units_by_user": [
+    "epilogue"
+  ]
 }

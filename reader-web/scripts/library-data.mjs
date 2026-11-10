@@ -23,7 +23,10 @@ const thinkingUnits = new Map([
   ['part_iv', [24.5, '第四部分引言']], ['part_v', [34.5, '第五部分引言']],
   ['conclusions', [38.5, '结语']],
 ]);
-const systematicUnits = new Map([['epilogue', [15.5, '后记']], ['appendix_a', [16, '附录 A']]]);
+const systematicUnits = new Map([
+  ['preface', [-1, '前言']], ['introduction', [0, '引言']],
+  ['epilogue', [15.5, '后记']], ['appendix_a', [16, '附录 A']],
+]);
 const zhishiUnits = new Map([
   ['foreword', [0, '前言']], ['part_i', [0.5, '上篇导言']],
   ['part_ii', [4.5, '下篇导言']], ['epilogue', [8.5, '结束语']],
